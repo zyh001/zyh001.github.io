@@ -68,9 +68,42 @@
         transform: scaleX(1);
     }
 
+    .btn {
+        line-height: 38px;
+        background-color: #00bfb3;
+        color: #fff;
+        white-space: nowrap;
+        text-align: center;
+        font-size: 14px;
+        border: none;
+        border-radius: 2px;
+        cursor: pointer;
+        padding: 5px;
+        width: 160px;
+        margin: 30px 0;
+    }
+
+    .tips, .example {
+        color: #7b7b7b;
+        position: relative;
+        align-self: flex-start;
+        margin-left: 7.5em;
+    }
+
+    .tips > p:first-child::before {
+        position: absolute;
+        left: -3em;
+        content: 'PS：';
+        color: #7b7b7b
+    }
+
+    .example > p:first-child::before {
+        position: absolute;
+        left: -7.5em;
+        content: '合法输入示例：';
+        color: #7b7b7b
+    }
 </style>
-<link rel="stylesheet" href="https://cdn.w3cbus.com/library/mdui/1.0.2/css/mdui.min.css"/>
-<script src="https://cdn.w3cbus.com/library/mdui/1.0.2/js/mdui.min.js"></script>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -84,19 +117,18 @@
     </script>
     <title>GitHub 文件加速</title>
 </head>
-<body class="flex mdui-theme-primary-indigo mdui-theme-accent-pink">
+<body class="flex">
 <h1 style="margin-bottom: 50px">GitHub 文件加速</h1>
 <form action="./" method="get" style="padding-bottom: 40px" target="_blank" class="flex" onsubmit="toSubmit(event)">
-    <label class="mdui-textfield">
-        <input class="mdui-textfield-input" name="q" type="text" placeholder="键入Github文件链接"
+    <label class="block" style="width: fit-content">
+        <input class="block url" name="q" type="text" placeholder="键入Github文件链接"
                pattern="^((https|http):\/\/)?(github\.com\/.+?\/.+?\/(?:releases|archive|blob|raw|suites)|((?:raw|gist)\.(?:githubusercontent|github)\.com))\/.+$" required>
         <div class="bar"></div>
     </label>
-    <input class="mdui-btn mdui-color-theme-accent mdui-ripple btn" type="submit" value="下载">
+    <input class="block btn" type="submit" value="下载">
     <div class="tips"><p>GitHub文件链接带不带协议头都可以，支持release、archive以及文件，右键复制出来的链接都是符合标准的，更多用法、clone加速请参考<a href="https://hunsh.net/archives/23/">这篇文章</a>。</p>
         <p>release、archive使用cf加速，文件会跳转至JsDelivr</p>
         <p>注意，不支持项目文件夹</p></div>
 </form>
-</p>
 </body>
 </html>
